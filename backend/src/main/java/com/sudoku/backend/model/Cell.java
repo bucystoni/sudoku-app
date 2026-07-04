@@ -1,21 +1,26 @@
 package com.sudoku.backend.model;
 
 public class Cell {
-    private int number;
+    private int value;
     private boolean isFixed;
 
-    public Cell(int number) {
-        this.number = number;
+    public Cell() {
+        this.value = 0;
         this.isFixed = false;
     }
 
-    public Cell(int number, boolean isFixed) {
-        this.number = number;
+    public Cell(int value) {
+        this.value = value;
+        this.isFixed = false;
+    }
+
+    public Cell(int value, boolean isFixed) {
+        this.value = value;
         this.isFixed = isFixed;
     }
 
-    public int getNumber() {
-        return number;
+    public int getValue() {
+        return value;
     }
 
     public boolean isFixed() {

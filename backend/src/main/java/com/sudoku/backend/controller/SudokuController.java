@@ -22,4 +22,7 @@ public class SudokuController {
     public Board getNewBoard() {
         return sudokuService.getEmptyBoard();
     }
+
+    @GetMapping("/sudoku/test")
+    public Board getTestBoard() { return sudokuService.getTestBoard(); }
 }
