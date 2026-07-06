@@ -1,11 +1,9 @@
-function SudokuCell({cell, row, col, onChange}) {
-    return (<div className="cell">
-        <input 
-            value={cell.value || ""} 
-            disabled={cell.isFixed}
-            onChange={(event) => onChange(row, col, event.target.value)}
-        />
-        </div>);
+import './SudokuCell.css'
+
+function SudokuCell({ value, row, col, onClick }) {
+    return (<div className="cell" onClick={() => onClick(row, col)}>
+        {value !== 0 ? value : ""}
+    </div>);
 }
 
 export default SudokuCell;
