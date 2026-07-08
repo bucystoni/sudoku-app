@@ -48,6 +48,13 @@ export function getConflictingCells(board, row, col) {
 
 
 
-function isSolved(board) {
-
+export function isSolved(board) {
+    for (let r = 0; r < board.length; r++) {
+        for (let c = 0; c < board[r].length; c++) {
+            if (board[r][c].value === 0) return false;
+            if (getConflictingCells(board, r, c).length > 0) return false;
+        }
+    }
+    
+    return true;
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SudokuService {
-    String testPuzzle = "070000043040009610800634900094052000358460020000800530080070091902100005007040802";
+    String testPuzzle = "301086504046521070500000001400800002080347900009050038004090200008734090007208103";
 
     public Board getEmptyBoard() {
         return new Board();
