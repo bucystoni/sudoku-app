@@ -27,3 +27,7 @@
 .cell.selected {
   background-color: #c7ddff;
 }
+
+.cell.conflict {
+    background-color: rgb(255, 185, 185);
+}

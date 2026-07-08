@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import SudokuCell from "./SudokuCell";
+import { getConflictingCells } from "../sudoku/validation";
 
 function SudokuBoard({ currentBoard }) {
     const [board, setBoard] = useState(currentBoard);
     const [selected, setSelected] = useState(null);
 
+    const conflicts = selected ? getConflictingCells(board, selected.row, selected.col) : [];
+    console.log("conflicts:", conflicts);
+
 
     function onCellClick(row, col) {
-        console.log({ row, col });
         setSelected({ row, col });
     }
 
     function handleCellChange(row, col, value) {
-        console.log(board);
         setBoard(prevBoard => {
             return prevBoard.map((r, i) => {
                 return r.map((cell, j) => {
@@ -72,6 +74,7 @@ function SudokuBoard({ currentBoard }) {
                         value={cell.value}
                         isSelected={isSelected}
                         isHighlighted={isHighlighted}
+                        conflicts={conflicts}
                         row={rowIndex}
                         col={colIndex}
                         onClick={onCellClick} />
