@@ -4,7 +4,6 @@ function SudokuCell({ value, isFixed, isSelected, isHighlighted, conflicts, row,
     const isConflict = conflicts.some(conflict => {
         return conflict.row === row && conflict.col === col;
     })
-    console.log(isConflict);
     
     return (<div
         className={[
