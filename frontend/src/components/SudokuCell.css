@@ -11,6 +11,9 @@
 
   font-size: 18px;
 
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+
   cursor: pointer;
   user-select: none;
 }
@@ -29,5 +32,10 @@
 }
 
 .cell.conflict {
-    background-color: rgb(255, 185, 185);
+  background-color: rgb(255, 185, 185);
+}
+
+.cell.fixed {
+  color: black;
+  font-weight: 700;
 }

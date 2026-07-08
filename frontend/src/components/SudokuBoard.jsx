@@ -72,6 +72,7 @@ function SudokuBoard({ currentBoard }) {
                     <SudokuCell
                         key={`${rowIndex}-${colIndex}`}
                         value={cell.value}
+                        isFixed={cell.fixed}
                         isSelected={isSelected}
                         isHighlighted={isHighlighted}
                         conflicts={conflicts}

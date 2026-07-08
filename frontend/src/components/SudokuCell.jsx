@@ -1,6 +1,6 @@
 import './SudokuCell.css'
 
-function SudokuCell({ value, isSelected, isHighlighted, conflicts, row, col, onClick }) {
+function SudokuCell({ value, isFixed, isSelected, isHighlighted, conflicts, row, col, onClick }) {
     const isConflict = conflicts.some(conflict => {
         return conflict.row === row && conflict.col === col;
     })
@@ -9,6 +9,7 @@ function SudokuCell({ value, isSelected, isHighlighted, conflicts, row, col, onC
     return (<div
         className={[
             "cell",
+            isFixed ? "fixed" : "",
             isSelected ? "selected" : "",
             isHighlighted ? "highlight" : "",
             isConflict ? "conflict" : ""
