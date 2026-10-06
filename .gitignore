@@ -6,6 +6,9 @@ frontend/dist/
 backend/target/
 *.class
 
+# Raw Data
+scripts/data/raw/
+
 # Env
 .env
 .env.local
