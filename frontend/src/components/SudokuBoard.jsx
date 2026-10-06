@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import SudokuCell from "./SudokuCell";
-import { getConflictingCells } from "../sudoku/validation";
+import { getConflictingCells } from "../engine/validation";
 
 function SudokuBoard({ board, setBoard, selected, setSelected }) {
 

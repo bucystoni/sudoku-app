@@ -1,5 +1,6 @@
 package com.sudoku.backend.controller;
 
+import com.sudoku.backend.dto.PuzzleDTO;
 import com.sudoku.backend.model.Board;
 import com.sudoku.backend.service.SudokuService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,6 @@ public class SudokuController {
         return sudokuService.getEmptyBoard();
     }
 
-    @GetMapping("/sudoku/test")
-    public Board getTestBoard() { return sudokuService.getTestBoard(); }
+    @GetMapping("/sudoku/random")
+    public PuzzleDTO getTestBoard() { return sudokuService.getRandomPuzzle(); }
 }
