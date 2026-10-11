@@ -75,6 +75,8 @@ Because the solution stays on the server, the frontend cannot compare the board 
 
 The source dataset has millions of puzzles, far more than a game needs and too large to commit. `scripts/trim-puzzles.mjs` reads it as a stream, line by line, so the whole file is never in memory, and keeps the first 200 puzzles for each clue count from 25 to 45. That gives 21 × 200 = 4,200 puzzles spread evenly from hard (few clues) to easy (many clues), instead of whatever distribution the first rows of the raw file happen to have.
 
+The original dataset: https://www.kaggle.com/datasets/informoney/4-million-sudoku-puzzles-easytohard/data
+
 ### Seeding at startup, exactly once
 
 `PuzzleSeeder` implements `ApplicationRunner`, so it runs after the application context is ready. It returns early if the table already has rows, which makes restarts safe. It reads the CSV from the classpath rather than from a file path, so it also works when the app is packaged as a jar.
