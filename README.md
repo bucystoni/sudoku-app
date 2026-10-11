@@ -2,7 +2,7 @@
 
 A full-stack Sudoku game: a Spring Boot API serves random puzzles from a PostgreSQL database, and a React app draws the board and checks the rules in the browser.
 
-<p align="center"><img src="docs/images/sudoku-solved.png" alt="A completed Sudoku board under the heading You solved it! Good job!" width="420"></p>
+<p align="center"><img src="docs/images/sudoku-playing.png" alt="A completed Sudoku board under the heading You solved it! Good job!" width="420"></p>
 
 ## Why this project exists
 
