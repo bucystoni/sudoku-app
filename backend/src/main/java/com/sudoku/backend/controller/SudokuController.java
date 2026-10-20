@@ -2,11 +2,9 @@ package com.sudoku.backend.controller;
 
 import com.sudoku.backend.dto.PuzzleDTO;
 import com.sudoku.backend.model.Board;
+import com.sudoku.backend.model.Difficulty;
 import com.sudoku.backend.service.SudokuService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -19,11 +17,8 @@ public class SudokuController {
         this.sudokuService = sudokuService;
     }
 
-    @GetMapping("/sudoku/new")
-    public Board getNewBoard() {
-        return sudokuService.getEmptyBoard();
-    }
-
     @GetMapping("/sudoku/random")
-    public PuzzleDTO getTestBoard() { return sudokuService.getRandomPuzzle(); }
+    public PuzzleDTO getRandomPuzzleByDifficulty(@RequestParam(defaultValue = "ANY") Difficulty difficulty) {
+        return sudokuService.getRandomPuzzle(difficulty);
+    }
 }

@@ -4,6 +4,7 @@ import com.sudoku.backend.dto.PuzzleDTO;
 import com.sudoku.backend.entity.PuzzleEntity;
 import com.sudoku.backend.exceptions.PuzzleNotFoundException;
 import com.sudoku.backend.model.Board;
+import com.sudoku.backend.model.Difficulty;
 import com.sudoku.backend.repository.PuzzleRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +22,9 @@ public class SudokuService {
         return new Board();
     }
 
-    public PuzzleDTO getRandomPuzzle() {
-        Optional<PuzzleEntity> optionalPuzzle = puzzleRepository.findRandomPuzzle();
-        if (optionalPuzzle.isPresent()) {
-            PuzzleEntity puzzle = optionalPuzzle.get();
-            return new PuzzleDTO(puzzle.getId(), puzzle.getPuzzle(), puzzle.getClueNumber());
-        } else {
-            throw new PuzzleNotFoundException("Couldn't find random puzzle.");
-        }
+    public PuzzleDTO getRandomPuzzle(Difficulty difficulty) {
+        return puzzleRepository.findRandomPuzzleInRange(difficulty.min(), difficulty.max())
+                .map(puzzle -> new PuzzleDTO(puzzle.getId(), puzzle.getPuzzle(), puzzle.getClueNumber()))
+                .orElseThrow(() -> new PuzzleNotFoundException("Couldn't find random puzzle."));
     }
-
 }
