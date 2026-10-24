@@ -63,3 +63,31 @@
 .row:nth-child(6) .cell {
   border-bottom: 2px solid black;
 }
+
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.difficulty-select,
+.new-game-btn {
+  font: inherit;
+  font-size: 16px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.new-game-btn:hover {
+  border-color: var(--accent);
+}
+
+.new-game-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
