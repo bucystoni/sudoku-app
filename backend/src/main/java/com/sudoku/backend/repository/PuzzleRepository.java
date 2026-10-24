@@ -9,9 +9,6 @@ import java.util.Optional;
 
 public interface PuzzleRepository extends JpaRepository<PuzzleEntity, Long> {
 
-    @Query(value = "SELECT * FROM puzzles ORDER BY random() LIMIT 1", nativeQuery = true)
-    Optional<PuzzleEntity> findRandomPuzzle();
-
     @Query(value = """
             SELECT * FROM puzzles
             WHERE clue_number BETWEEN :min AND :max

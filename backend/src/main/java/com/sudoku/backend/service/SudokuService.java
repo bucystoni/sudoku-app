@@ -1,9 +1,7 @@
 package com.sudoku.backend.service;
 
 import com.sudoku.backend.dto.PuzzleDTO;
-import com.sudoku.backend.entity.PuzzleEntity;
 import com.sudoku.backend.exceptions.PuzzleNotFoundException;
-import com.sudoku.backend.model.Board;
 import com.sudoku.backend.model.Difficulty;
 import com.sudoku.backend.repository.PuzzleRepository;
 import org.springframework.stereotype.Service;
@@ -16,10 +14,6 @@ public class SudokuService {
 
     public SudokuService(PuzzleRepository puzzleRepository) {
         this.puzzleRepository = puzzleRepository;
-    }
-
-    public Board getEmptyBoard() {
-        return new Board();
     }
 
     public PuzzleDTO getRandomPuzzle(Difficulty difficulty) {
